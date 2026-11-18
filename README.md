@@ -96,14 +96,20 @@ connected. See the shared library README for details.
 This repository ships the M5Burner firmware package layout:
 
 - `m5burner.json` describes the `AtomS3R Intercom` category.
-- `firmware_atoms3r_intercom/` contains the flash images named by address
-  (`bootloader_0x1000.bin`, `partitions_0x8000.bin`,
-  `firmware_0x10000.bin`, `littlefs_0x670000.bin`).
+- `firmware_atoms3r_intercom/` contains the M5Burner flash images named by
+  address (`bootloader_0x0.bin`, `partitions_0x8000.bin`,
+  `boot_app0_0xe000.bin`, `firmware_0x10000.bin`,
+  `littlefs_0x670000.bin`). These are used by the M5Burner desktop app,
+  which flashes them at their respective offsets.
+- The same folder also contains `full_flash_0x0.bin`, a single combined image
+  of all four regions (flash offset `0x0`). Use this file when the M5Burner
+  website/community uploader only accepts one `.bin`: upload
+  `full_flash_0x0.bin` and set the flash offset to `0x0` (erase flash first).
 
 Build with PlatformIO first, then copy the generated `.bin` files from
 `.pio/build/atoms3r_intercom/` into that folder before publishing. Run
-`pio run -e atoms3r_intercom -t m5burner_push` to rebuild the filesystem image
-and copy all four bins automatically.
+`pio run -e atoms3r_intercom -t m5burner_push` to rebuild the filesystem image,
+copy all four bins, and regenerate `full_flash_0x0.bin` automatically.
 
 ## Troubleshooting
 
