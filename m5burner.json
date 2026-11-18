@@ -1,0 +1,18 @@
+{
+    "name": "AtomS3R Intercom",
+    "description": "Intercom firmware for M5Stack AtomS3R + Atomic Voice Base using ESP-NOW and/or Wi-Fi. Supports mixed networks of multiple StickS3 and AtomS3R units, browser peers over HTTPS, peer selection, spy mode, and live/clip audio. Wi-Fi and ESP-NOW-only units can communicate together.",
+    "keywords": "ESP32-S3, M5Stack, AtomS3R, Intercom, ESP-NOW, LittleFS",
+    "author": "Robot-icist",
+    "repository": "https://github.com/Robot-icist/StickS3-Intercom",
+    "firmware_category": {
+        "AtomS3R Intercom": {
+            "path": "firmware_atoms3r_intercom",
+            "device": [
+                "M5Stack AtomS3R"
+            ],
+            "default_baud": 1500000
+        }
+    },
+    "version": "1.0.0",
+    "framework": "Arduino"
+}
